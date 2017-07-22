@@ -1,27 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Custom Service</title>
-	<script src="angular.min.js"></script>
-	<script src="app.js"></script>
+	<meta charset="utf-8">
+	<title>Tính Chỉ số IBM( làm bậy)</title>
+	<script type="text/javascript">
+		var ten = prompt('Tên của bạn là', 'Chiến')
+		var lenarry = new Array(3);
+		function ibm(){
+			var a = parseFloat(lenarry[0])/100*parseFloat(lenarry[0])/100;
+			return a;
+		}
+		function set(ketqua){
+			document.getElementById('ibm').value = ketqua;
+		}
+		function loai(a){
+			var b;
+			if(a>18){
+				b = 'binh thuong';
+			}
+			if(a<18){
+				b= 'sida';
+			}
+			return b;
+		}
+		function set1(ketqua){
+			document.getElementById('kl').value = ketqua;
+		}
+		function Hello(){
+			for (var i = 0; i < lenarry.length; i++) {
+				if(i==0){
+					lenarry[i] = prompt('Nhập chiều cao(cm) cua ' + ten, '');
+				}
+				if(i==1){
+					lenarry[i] = prompt('Nhập cân nặng(kg) của ' + ten, '');
+				}
+				if(i==2){
+					lenarry[i] = prompt(' Age of ' + ten, '');
+				}
+				
+			}	
+   			set(ibm());
+   			set1(loai(ibm()));
+		}
+		
+
+	</script>
 </head>
 <body>
-	<h1>Custom Service</h1>
-	<div ng-controller='ShoppingListAddController as itemAdder'>
-		<input type="text" ng-model="itemAdder.itemName" placeholder="item name">
-		<input type="text" ng-model="itemAdder.itemQuantity" placeholder="quantity">
-		<button ng-click="itemAdder.addItem();">Add Item To Shopping List</button>
-	</div>
-
-	<div ng-controller='ShoppingListShowController as showList'>
-		<ol>
-			<li ng-repeat="item in showList.items">
-				{{ item.quantity }} of {{ item.name }}
-				<button ng-click="showList.removeItem($index);">Remove Item</button>
-				<button ng-click="showList.editItem($index);">Edit item</button>
-			</li>
-		</ol>
-	</div>
-</body>
+	
+		<p style="text-align: center;"> Click vào Img ở dưới </p>
+ 		<p style="text-align: center;"><img src="E:\Thực Hành HTML\js\laohac.jpg"   border='3' width="200px" height="auto" id="le"  onclick="Hello();" /></p>
+ 		<p style="text-align: center;">Chi So IBM of ban</p> 
+ 		<p style="text-align: center;"> <input   type="text" id="ibm" disabled="disabled" ></p>
+ 		<p style="text-align: center;">Ban Thuoc nguoi</p>
+ 		<p style="text-align: center;"> <input  type="text" id="kl" disabled="disabled"></p>
+ 		
+ 	
+ </body>
 </html>
