@@ -243,6 +243,8 @@ var screenReaderText = {"expand":"expand child menu","collapse":"collapse child 
 	function loadPage(name) {
 		jQuery("#primary").html('Loading...');
 		jQuery("#primary").load(name + ".html");
+		jQuery(".menu-item").removeClass('current-menu-item');
+		jQuery(this).parent('li').addClass('current-menu-item');
 	}
 </script>
 </html>
